@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Card from "./card/card";
+
 
 function App() {
+
+  const cardData = {
+    image: process.env.PUBLIC_URL + '/img/pic.png',
+    title: 'First Card',
+    text: 'This is the first card text. This text is owned by the first card',
+    buttonCaption: 'Click me',
+    buttonOnClick: () => console.log('Card button clicked!'),
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Card {...cardData} />
+      <br/>
+      <Card {...cardData} image={null}/>
+    </>
   );
 }
 
